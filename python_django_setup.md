@@ -43,6 +43,8 @@ $ git .init
 ### Create a virtual Environment
 WARN: do this *before* installing Django.
 
+macOS
+
 ```
 $ cd path/to/django_tutorial                   <-- change directory to project home
 $ which python3                                <-- check where python3 is installed
@@ -50,6 +52,26 @@ $ which python3                                <-- check where python3 is instal
 $ virtualenv -p /usr/local/bin/python3 venv    <-- install Python 3 virtual environment
 $ source venv/bin/activate                     <-- start 'venv' virtual environment
 ```
+
+Windows
+
+`cd your_project`
+
+Within your project:
+
+`virtualenv env`
+
+In Windows, virtualenv creates a batch file:
+
+`\env\Scripts\activate.bat`
+
+To activate virtualenv on Windows, activate script is in the Scripts folder:
+
+`\path\to\env\Scripts\activate`
+
+Example:
+
+C:\Users\'Username'\venv\Scripts\activate.bat
 
 Once activated the virtual environment 'venv' will be displayed before the prompt:
 
@@ -143,31 +165,3 @@ Quit the server with CONTROL-C.
 INFO: ignore the database migration warnings; we will address those momentarily.
 
 Point your browser to http://127.0.0.1:8000/ and confirm that the default Django page is displayed.  Then switch back to the terminal and shut down the development server by clicking CONTROL-C on the keyboard.
-
-#### Create polls app
-A Django project is composed of one or more *apps*.  Add an app named 'polls'.
-
-```
-(venv) $ python3 manage.py startapp polls
-```
-
-The resulting polls app layout:
-
-```
-polls/
-    __init__.py
-    admin.py
-    apps.py
-    migrations/
-        __init__.py
-    models.py
-    tests.py
-    views.py
-```
-
-#### Perform database migration
-Attempt to connect to the MySQL 'polls' database in order to perform the initial set of required Django migrations referenced when the polls app was created.
-
-```
-(venv) $ python3 manage.py migrate
-```
